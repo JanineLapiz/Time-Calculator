@@ -13,7 +13,7 @@ def validate_start_time(time: str) -> None:
         
     # No need to check if minutes is less than 0. 
     # The pattern check above ensures it's always an integer.
-    if int(minutes) > 60: raise Exception('Invalid minutes')
+    if int(minutes) >= 60: raise Exception('Invalid minutes')
     
 
 def validate_duration(duration: str) -> None:
@@ -25,4 +25,4 @@ def validate_duration(duration: str) -> None:
     
     # No need to check if minutes is less than 0. 
     # The pattern check above ensures it's always an integer.
-    if int(minutes) > 60: raise Exception('Invalid minutes')
+    if int(minutes) >= 60: raise Exception('Invalid minutes')

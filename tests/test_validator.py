@@ -37,9 +37,9 @@ class TestValidateStartTime(TestCase):
             validate_start_time('12:0 PM')
         self.assertEqual(str(context.exception), 'Invalid start time pattern')
     
-    def test_minutes_is_more_than_60(self):
+    def test_minutes_is_not_less_than_60(self):
         with self.assertRaises(Exception) as context:
-            validate_start_time('12:63 PM')
+            validate_start_time('12:60 PM')
         self.assertEqual(str(context.exception), 'Invalid minutes')
             
     def test_minutes_is_less_than_0(self):
@@ -84,11 +84,11 @@ class TestValidateDuration(TestCase):
             validate_duration('12:1')
         self.assertEqual(str(context.exception), 'Invalid duration format')
         
-    def test_minutes_is_more_than_60(self):
+    def test_minutes_is_not_less_than_60(self):
         with self.assertRaises(Exception) as context:
-            validate_duration('12:80')
+            validate_duration('12:60')
         self.assertEqual(str(context.exception), 'Invalid minutes')
-    
+        
     def test_minutes_is_less_than_0(self):
         with self.assertRaises(Exception) as context:
             validate_duration('12:-2')
