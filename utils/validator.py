@@ -1,9 +1,9 @@
 import re
 
-def validate_start_time(time: str) -> None:
+def validate_time(time: str) -> None:
     start_time_pattern = r'\d{1,2}:\d{2} [AP]M'
         
-    if not re.match(start_time_pattern, time): raise Exception('Invalid start time pattern')
+    if not re.match(start_time_pattern, time): raise Exception('Invalid time pattern')
     
     hours_and_minutes = time.split()[0]
     
