@@ -1,11 +1,11 @@
 import re
 
-def validate_time(time: str) -> None:
+def validate_start_time(start_time: str) -> None:
     start_time_pattern = r'\d{1,2}:\d{2} [AP]M'
         
-    if not re.match(start_time_pattern, time): raise Exception('Invalid time pattern')
+    if not re.match(start_time_pattern, start_time): raise Exception('Invalid start time pattern')
     
-    hours_and_minutes = time.split()[0]
+    hours_and_minutes = start_time.split()[0]
     
     [hours, minutes] = hours_and_minutes.split(':')
     
@@ -26,3 +26,9 @@ def validate_duration(duration: str) -> None:
     # No need to check if minutes is less than 0. 
     # The pattern check above ensures it's always an integer.
     if int(minutes) >= 60: raise Exception('Invalid minutes')
+    
+
+def is_minutes(minutes: int) -> bool:
+    if minutes >= 60: return False
+    if minutes < 0: return False
+    return True
