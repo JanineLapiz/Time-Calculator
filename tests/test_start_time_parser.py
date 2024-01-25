@@ -31,7 +31,6 @@ class TestStartTimeParser(TestCase):
         self.assertEqual(parsed_start_time.minutes, 46)
         self.assertEqual(parsed_start_time.meridiem, Meridiem.PM)
 
-        
     def test_validation_in_time_parser(self):
         with self.assertRaises(Exception) as context:
             parse_start_time('1sd:23 p,')

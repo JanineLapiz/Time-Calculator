@@ -27,4 +27,4 @@ def parse_duration(duration: str) -> Duration:
     
 def parse_start_day_of_week(start_day_of_week: str | None) -> DayOfWeek | None:
     if not start_day_of_week: return None
-    return DayOfWeek(start_day_of_week.upper())
+    return DayOfWeek[start_day_of_week.upper()]

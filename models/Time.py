@@ -12,6 +12,10 @@ class Parsed12HourFormat:
         self.hours = hours
         self.minutes = minutes
         self.meridiem = meridiem
+    
+    @property
+    def formatted_string(self) -> str:
+        return f'{self.hours}:{self.minutes} {self.meridiem.name}'
         
 
 class Parsed24HourFormat:
@@ -24,6 +28,10 @@ class Parsed24HourFormat:
         
         self.hours = hours
         self.minutes = minutes
+        
+    @property
+    def formatted_string(self) -> str:
+        return f'{self.hours}:{self.minutes}'
 
 
 class Duration:
@@ -33,3 +41,7 @@ class Duration:
                        
         self.hours = hours
         self.minutes = minutes
+        
+    @property
+    def formatted_string(self) -> str:
+        return f'{self.hours}:{self.minutes}'
